@@ -1,9 +1,9 @@
 This library aims to facilitate using the env variables in a nodejs app..
 
-To beign, you can import BaseSettings decorator from sal-settings and use it like this:
+To beign, you can import BaseSettings decorator from saucy-settings and use it like this:
 
 ```ts
-import { BaseSettings } from "sal-settings"
+import { BaseSettings } from "saucy-settings"
 ```
 
 This decorator can be applied to any class with some properties:
@@ -66,7 +66,7 @@ class UserService {
 Normally, a basic level validation is required for env variables i:e string. number, boolean, nullable etc.
 And its a pain to write that code all by yourself isn't it? I mean its boring stuff mate.
 
-Hence sal-settings provides you with some built-in validators and you can use them like this:
+Hence saucy-settings provides you with some built-in validators and you can use them like this:
 
 ```ts
 @BaseSettings()

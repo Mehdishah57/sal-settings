@@ -1,11 +1,11 @@
 import path from "path"
 import fs from "fs"
 
-import { IBaseSettingsConfig } from "./types"
-import { state } from "./state";
-import { ValueType } from "./enum";
+import { ISalSettingsConfig } from "./types"
+import { state } from "./state"
+import { ValueType } from "./enum"
 
-const BaseSettings = (config?: IBaseSettingsConfig) => <T extends {new(...args: any[]):{}}>(constructor: T) => {
+const SalSettings = (config?: ISalSettingsConfig) => <T extends {new(...args: any[]):{}}>(constructor: T) => {
     const { filePath = "./", fileName = ".env" } = config || {};
     const corePath = filePath ? path.join(filePath) : path.dirname("."); 
     try {
@@ -67,4 +67,4 @@ const BaseSettings = (config?: IBaseSettingsConfig) => <T extends {new(...args: 
     }
 }
 
-export default BaseSettings
+export default SalSettings

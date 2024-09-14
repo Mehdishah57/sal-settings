@@ -1,4 +1,4 @@
-import BaseSettings from "./Base";
+import SalSettings from "./Base";
 import { 
     boolean, 
     nullable, 
@@ -7,7 +7,7 @@ import {
 } from "./validators";
 
 export {
-    BaseSettings,
+    SalSettings,
     boolean, 
     nullable, 
     number, 

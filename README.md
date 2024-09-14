@@ -1,22 +1,22 @@
 This library aims to facilitate using the env variables in a nodejs app..
 
-To beign, you can import BaseSettings decorator from saucy-settings and use it like this:
+To beign, you can import SalSettings decorator from sal-settings and use it like this:
 
 ```ts
-import { BaseSettings } from "saucy-settings"
+import { SalSettings } from "sal-settings"
 ```
 
 This decorator can be applied to any class with some properties:
 
 ```ts
-@BaseSettings()
+@SalSettings()
 class Settings {}
 ```
 
 In the settings class, now you can declare multiple properties:
 
 ```ts
-@BaseSettings()
+@SalSettings()
 class Settings {
     POSTGRES_USER: string;
 }
@@ -24,10 +24,10 @@ class Settings {
 
 Now at runtime, it'll try to resolve the properties from `.env` file in root directory of project.
 in case it is different i:e file name or file path are different, you can supply them in
-BaseSettings like this:
+SalSettings like this:
 
 ```ts
-@BaseSettings({
+@SalSettings({
     fileName: '<your-env-file-name>',
     filePath: '<path-to-your-env-file>/'
 })
@@ -45,7 +45,7 @@ export const settings = new Settings()
 If you're using some DI library / framework, you can always set this instance in container:
 
 ```ts
-container.set(settings, Settings)
+container.set(Settings, settings)
 ```
 
 Then it can be auto injected in any constructors of components or services etc.
@@ -66,10 +66,10 @@ class UserService {
 Normally, a basic level validation is required for env variables i:e string. number, boolean, nullable etc.
 And its a pain to write that code all by yourself isn't it? I mean its boring stuff mate.
 
-Hence saucy-settings provides you with some built-in validators and you can use them like this:
+Hence sal-settings provides you with some built-in validators and you can use them like this:
 
 ```ts
-@BaseSettings()
+@SalSettings()
 class Settings {
     @string POSTGRES_USER: string;
     @number POSTGRES_PORT: number;

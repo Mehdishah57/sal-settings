@@ -83,3 +83,10 @@ class Settings {
 this way, you'll enforce some constraints on your env variables which are good as it makes your
 application more predictable.
 
+# Inject variables from process.env
+
+Sometimes, your environment has some variables set by external sources i:e docker-compose.yml or Dockerfile etc
+You just have to go and set VAR=process.env in your .env file
+and at runtime, it will inject value to process.env.VAR into settings
+And inside of application, you will have access to it via settings object with intellisense
+

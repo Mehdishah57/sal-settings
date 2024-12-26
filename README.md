@@ -85,8 +85,16 @@ application more predictable.
 
 # Inject variables from process.env
 
-Sometimes, your environment has some variables set by external sources i:e docker-compose.yml or Dockerfile etc
-You just have to go and set VAR=process.env in your .env file
-and at runtime, it will inject value to process.env.VAR into settings
+Sometimes, your environment has some variables set by external sources i:e docker-compose.yml, Dockerfile etc
+If you avoid duplicate values in different places and you also want to consistently use settings object with intellisense
+intead of mixing process.env.VAR in your code, You just have to go and set VAR=process.env in your .env file like this
+
+```shell
+NODE_ENV=process.env
+
+# other variables go here
+```
+
+and at runtime, it will inject value of ```process.env.NODE_ENV``` into NODE_ENV in settings
 And inside of application, you will have access to it via settings object with intellisense
 
